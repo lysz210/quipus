@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package it.lysz210.akasha.capacnan.quipus.common;
+
+option java_package = "it.lysz210.akasha.capacnan.quipus.common";
+option java_multiple_files = true;
+
+enum EncryptionAlgo {
+  UNKNOWN = 0;
+  AES_GCM_128 = 1;
+  AES_GCM_256 = 2;
+  CHACHA20_POLY1305 = 3;
+}
+
+message EncryptionMeta {
+  EncryptionAlgo algo = 1;
+  bytes nonce = 2;
+  string key_id = 3; // Reference for Claviger
+}

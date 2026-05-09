@@ -8,6 +8,7 @@ dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
         mavenCentral()
+        mavenLocal()
     }
 }
 

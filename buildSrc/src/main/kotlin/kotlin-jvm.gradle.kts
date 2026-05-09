@@ -8,6 +8,7 @@ plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin in JVM projects.
     kotlin("jvm")
     id("org.kordamp.gradle.jandex")
+    `maven-publish`
 }
 
 kotlin {
@@ -31,4 +32,16 @@ tasks.withType<Test>().configureEach {
 
 tasks.withType<Jar> {
     dependsOn("jandex")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+        }
+    }
 }

@@ -12,6 +12,8 @@ dependencies {
     // Apply the kotlinx bundle of dependencies from the version catalog (`gradle/libs.versions.toml`).
     implementation(libs.bundles.kotlinxEcosystem)
     testImplementation(kotlin("test"))
+    testImplementation(platform("org.assertj:assertj-bom:3.25.3"))
+    testImplementation("org.assertj:assertj-core")
 }
 
 protobuf {

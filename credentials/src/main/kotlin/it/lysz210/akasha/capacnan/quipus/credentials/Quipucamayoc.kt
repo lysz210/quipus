@@ -14,6 +14,7 @@ class Quipucamayoc (
 
         return credentialQuipu {
             userId = user
+            security = encryptionStrategy.getMeta()
             encryptedPayload = encryptionStrategy.encrypt(data)
         }
     }

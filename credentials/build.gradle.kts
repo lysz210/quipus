@@ -8,11 +8,11 @@ plugins {
 }
 
 dependencies {
-    implementation("com.google.protobuf:protobuf-kotlin:${properties["protobuf.Version"]}")
+    api("com.google.protobuf:protobuf-kotlin:${properties["protobuf.Version"]}")
     // Apply the kotlinx bundle of dependencies from the version catalog (`gradle/libs.versions.toml`).
     implementation(libs.bundles.kotlinxEcosystem)
     testImplementation(kotlin("test"))
-    testImplementation(platform("org.assertj:assertj-bom:3.25.3"))
+    testImplementation(platform("org.assertj:assertj-bom:${properties["assertj.BomVersion"]}"))
     testImplementation("org.assertj:assertj-core")
 }
 

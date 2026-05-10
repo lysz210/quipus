@@ -4,6 +4,11 @@ import com.google.protobuf.ByteString
 
 class NoopEncryptionStrategy: EncryptionStrategy {
 
+    override fun getMeta(): EncryptionMeta =
+        encryptionMeta {
+            algo = EncryptionAlgo.NONE
+        }
+
     override fun encrypt(payload: SecretData): ByteString =
         payload.toByteString()
 

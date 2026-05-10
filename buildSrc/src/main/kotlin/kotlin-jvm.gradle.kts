@@ -9,6 +9,7 @@ plugins {
     kotlin("jvm")
     id("org.kordamp.gradle.jandex")
     `maven-publish`
+    `java-library`
 }
 
 kotlin {

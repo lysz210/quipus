@@ -43,6 +43,8 @@ class QuipucamayocTest {
     @Test
     fun `should create the CredentialQuipu`() {
         val quipu = quipucamayoc.tie("me", createSecredData())
+        assertThat(quipu)
+            .hasFieldOrPropertyWithValue("security.algo", EncryptionAlgo.NONE)
         assertThat(quipu.encryptedPayload)
             .isNotEmpty
     }

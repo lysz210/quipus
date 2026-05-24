@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package it.lysz210.akasha.capacnan.quipus.maps;
+
+option java_package = "it.lysz210.akasha.capacnan.quipus.maps";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+// SummaryActivity represents the mid-level view of an activity.
+message Activity {
+  // The unique identifier of the activity
+  int64 id = 1;
+
+  optional int64 athlete_id = 2;
+
+  // The identifier provided at upload time
+  optional string external_id = 3;
+
+  // The name of the activity
+  optional string name = 4;
+
+  // The activity's distance, in meters
+  optional double distance = 5;
+
+  // The activity's moving time, in seconds
+  optional int64 moving_time = 6;
+
+  // The activity's elapsed time, in seconds
+  optional int64 elapsed_time = 7;
+
+  // WARNING: SportType is not complete, better use String as type
+  optional string sport_type = 9;
+
+  // The time at which the activity was started.
+  optional google.protobuf.Timestamp start_date = 10;
+
+  // The activity's average speed, in meters per second
+  optional double average_speed = 11;
+
+  // The activity's max speed, in meters per second
+  optional double max_speed = 12;
+
+  // PolylineMap instance ID.
+  optional string map_id = 13;
+}
+
+message ActivityEntry {
+  message LatLng {
+    // latitude of the 2d geo location
+    double latitude = 1;
+    // longitude of the 2d geo location
+    double longitude = 2;
+  }
+  // The activity ID
+  int64 activity_id = 1;
+  // The distance values for activity start, in meters
+  optional double distance = 2;
+  // The time values for activity start, in seconds
+  optional google.protobuf.Timestamp time = 3;
+  // The lat/long values for activity start
+  optional LatLng latlng = 4;
+  // The altitude values for activity start, in meters
+  optional double altitude = 5;
+}

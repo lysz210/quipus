@@ -19,3 +19,4 @@ plugins {
 
 rootProject.name = "quipus"
 include(":credentials")
+include(":maps")

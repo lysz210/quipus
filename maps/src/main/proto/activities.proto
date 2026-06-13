@@ -48,6 +48,8 @@ message Activity {
 
   // PolylineMap instance ID.
   optional string map_id = 13;
+
+  optional string fit_file_uri = 14;
 }
 
 message ActivityEntry {

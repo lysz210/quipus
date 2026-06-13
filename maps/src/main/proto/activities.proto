@@ -7,12 +7,17 @@ option java_multiple_files = true;
 
 import "google/protobuf/timestamp.proto";
 
+message ActivityId {
+  string id = 1;
+  string provider = 2;
+}
+
 // SummaryActivity represents the mid-level view of an activity.
 message Activity {
   // The unique identifier of the activity
-  int64 id = 1;
+  ActivityId id = 1;
 
-  optional int64 athlete_id = 2;
+  optional string athlete_id = 2;
 
   // The identifier provided at upload time
   optional string external_id = 3;
@@ -53,7 +58,7 @@ message ActivityEntry {
     double longitude = 2;
   }
   // The activity ID
-  int64 activity_id = 1;
+  ActivityId activity_id = 1;
   // The distance values for activity start, in meters
   optional double distance = 2;
   // The time values for activity start, in seconds
@@ -62,4 +67,9 @@ message ActivityEntry {
   optional LatLng latlng = 4;
   // The altitude values for activity start, in meters
   optional double altitude = 5;
+}
+
+message ActivityFitSource {
+  ActivityId activity_id =1;
+  string uri = 2;
 }

@@ -13,7 +13,7 @@ class Quipucamayoc (
         this.validate(data)
 
         return credentialQuipu {
-            userId = user
+            provider = user
             security = encryptionStrategy.getMeta()
             encryptedPayload = encryptionStrategy.encrypt(data)
         }
